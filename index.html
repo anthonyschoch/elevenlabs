@@ -9,28 +9,15 @@
   <elevenlabs-convai agent-id="UCbfOQbp0uPwegT54cdy"></elevenlabs-convai>
   <script src="https://elevenlabs.io/convai-widget/index.js" async type="text/javascript"></script>
   <script>
-    // Add debugging to track agent events
     document.addEventListener('DOMContentLoaded', () => {
       const convaiElement = document.querySelector('elevenlabs-convai');
       
-      // Event: Agent is ready
-      convaiElement.addEventListener('onReady', () => {
-        console.log('Agent is ready.');
-      });
-
-      // Event: Session connected
-      convaiElement.addEventListener('onConnect', () => {
-        console.log('Session connected.');
-      });
-
-      // Event: Message received
+      // Add a delay when a message is received
       convaiElement.addEventListener('onMessage', (event) => {
-        console.log('Message received:', event.detail);
-      });
-
-      // Event: Error encountered
-      convaiElement.addEventListener('onError', (event) => {
-        console.error('Error:', event.detail);
+        console.log('Delaying playback for 1 second...');
+        setTimeout(() => {
+          console.log('Message received after delay:', event.detail);
+        }, 1000); // 1-second delay
       });
     });
   </script>
